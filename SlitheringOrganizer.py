@@ -1,12 +1,32 @@
 import os
 import json
 import pickle
+from pptx import Presentation
 #C:\Users\Sushant\Dropbox\College\Summer 17\Python\SlitheringMover
 
 #figure out how to organize college lecture pdf and ppt
 
 #exclude when slithering
 exclude=["Slither_organized","Folders","Downloadsdesktop.ini","desktop.ini"]
+
+#ppt and pdf handler
+def get_slidepage(loc):
+	text_dict ={}
+	slide_no=1
+	slide_text=""
+	prs = Presentation(loc)
+	for slide in prs.slides:
+		for shape in slide.shapes:
+			if not shape.has_text_frame:
+				continue
+			for paragraph in shape.text_frame.paragraphs:
+				for run in paragraph.runs:
+					slide_text+=" "+run.text		
+		slide_no+=1
+		if slide_no>2 :
+			break
+	return slide_text.lower()
+
 
 def getallfiles(loc):
 	files= os.listdir(loc);
@@ -55,6 +75,7 @@ def organize():
 	down_dir=""
 	others_dir=""
 	fromfiles = {}
+	college_dir=""
 	#open the file
 	#fromfiles= load_obj("direc_and_ext")
 	with open("direc_and_ext.txt") as file:
@@ -66,17 +87,23 @@ def organize():
 			down_dir=direc
 		if key == "others":
 			others_dir=direc 
-	
+		if ".pdf" in key:  #assumes pdf to be in key
+			college_dir=direc
 	down_dic=getallfiles(down_dir)
 	allfiles={}
 	#forming nested dictionary based on extension
 	for direc,key in fromfiles.iteritems():
-		if key == "downloads" or key == "others" :
+		if key == "downloads" or key == "others" or direc=="courses":
 			continue 
 		if key == "folders" :
 			allfiles[direc]=no_extension(down_dic)
 		allfiles[direc]=file_extension_split(key,down_dic)
 
+	#handle pptx and pdf files
+	"""college_files=allfiles[college_dir]
+	for file,loc in college_files:
+		if file.find('.pptx')!=-1:
+	"""
 	#moving for most extension
 	for dir_file,ext_dic in allfiles.iteritems():
 		moveto(ext_dic,dir_file) 
