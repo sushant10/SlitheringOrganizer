@@ -4,7 +4,7 @@ import pickle
 from pptx import Presentation
 #C:\Users\Sushant\Dropbox\College\Summer 17\Python\SlitheringMover
 
-#figure out how to organize college lecture pdf and ppt
+#figure out how to organize college lecture pdf
 
 #exclude when slithering
 exclude=["Slither_organized","Folders","Downloadsdesktop.ini","desktop.ini"]
