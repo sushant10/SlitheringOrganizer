@@ -1,7 +1,8 @@
 # Slithering Mover
 ## Description
 ### New:
-Now handles pptx files. Reads slides on pptx and figures out which course it is and organizes/moves file accordingly.
+* Now handles pptx files. Reads slides on pptx and figures out which course it is and organizes/moves file accordingly.
+* Requires pptx module (install using pip)
 
 ### Features:
 * Python Script to organize downloads folder based on file extensions. 
