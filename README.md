@@ -1,4 +1,5 @@
 # Slithering Mover
+[![License: MIT](https://img.shields.io/badge/License-MIT-brightgreen.svg)](https://opensource.org/licenses/MIT)
 ## Description
 ### New:
 * Now handles pptx files. Reads slides on pptx and figures out which course it is and organizes/moves file accordingly.
