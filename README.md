@@ -13,7 +13,7 @@ A small bot to organize your downloads folder based on file extenstions.
 * Moves files and folders into a folder and organizes based on extensions.. eg: .mp3 file to music folder.etc. 
 * Zip file contains default folder layout the program orgainizes files into. 
 * Reads the directories to move to and extensions to organize by from text file or pickle file. 
-*Basic directories and extensions.py creates text/pickle file with required/default direc/extensions.
+*Basic_directories_and_extensions.py creates text/pickle file with required/default direc/extensions.
 
 
 
